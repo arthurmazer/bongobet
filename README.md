@@ -11,15 +11,12 @@ Antes de começar, é importante ter o Python e o Django instalados em seu siste
 Se você ainda não os tem instalados, siga os passos apropriados para sua plataforma. 
 Você pode instalar o Django usando o pip, que é o gerenciador de pacotes do Python
 
-```terminal
-pip install django
+`pip install django`
 
 ### Passo 2: Navegue até a raiz do projeto e inicie o servido
 
-```terminal
-python manage.py runserver
+`python manage.py runserver`
 
 ### Passo 3: Caso inicie corretamente, acesse o link do localhost
 
-```web
-http://localhost:8000/index/
+`http://localhost:8000/index/`
