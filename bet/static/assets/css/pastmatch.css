@@ -1,0 +1,328 @@
+@charset "UTF-8";
+
+.highlighted {
+  color: #fff !important;
+}
+
+.victory {
+  border-color: #7ce04a;
+  color: #7ce04a;
+}
+
+.defeat {
+  border-color: #c50021;
+  color: #c50021;
+}
+
+.double-kill {
+  background-color: #e84057;
+}
+
+.ace {
+  background-color: #7d59ea;
+}
+
+.divider-horizontal {
+  height: 1px;
+  width: 70px;
+  padding: 0px 8px;
+  margin: 4px 0px;
+  background-color: #24662B;
+}
+
+.divider-victory {
+  border-color: #24662B;
+}
+
+.match-card {
+  border-radius: 8px;
+  background-color: #304A1D;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+  max-width: 800px;
+  height: 148px;
+}
+
+.match-card__border-left {
+  border-left-width: 8px;
+  border-left-style: solid;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.match-card__content {
+  display: flex;
+  flex-direction: row;
+  padding: 16px;
+  flex: 1;
+}
+
+.match-card__match-info {
+  width: 108px;
+}
+
+.match-card__text {
+  color: #9e9eb1;
+  font-size: 12px;
+}
+
+.match-card__player-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.match-card__player-details {
+  display: flex;
+  flex-direction: row;
+}
+
+.match-card__champion {
+  height: 48px;
+  width: 48px;
+  position: relative;
+  margin: 2px 4px;
+}
+
+.match-card__champion-image {
+  height: 48px;
+  width: 48px;
+  border-radius: 24px;
+}
+
+.match-card__level_badge {
+  background-color: rgb(32, 45, 55);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  font-size: 10px;
+  color: #fff;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  right: 0;
+}
+
+.match-card__spells {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.match-card__spell-image {
+  height: 22px;
+  width: 22px;
+}
+
+.match-card__runes {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 4px;
+}
+
+.match-card__rune-image {
+  height: 22px;
+  width: 22px;
+}
+
+.match-card__player-items {
+  margin-left: 4px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.match-card__item-image {
+  height: 22px;
+  width: 22px;
+  margin-right: 4px;
+}
+
+.match-card__tag {
+  height: 18px;
+  line-height: 18px;
+  padding: 0px 8px;
+  border-radius: 9px;
+  color: #fff;
+  font-size: 10px;
+  margin: 0px 4px;
+}
+
+.match-card__kda {
+  display: flex;
+}
+
+.match-card__kda-numbers {
+  width: 108px;
+  margin: 0px 8px;
+  gap: 8px;
+}
+
+.match-card__kda-numbers > span {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+}
+
+.match-card__kda-stats {
+  width: 139px;
+  margin: 0px 8px;
+  border-left-width: 1px;
+  border-left-style: solid;
+  padding-left: 8px;
+}
+
+.match-card__team-info {
+  width: 85px;
+  margin: 0px 8px;
+}
+
+.match-card__match-player {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 2px;
+}
+
+.match-card__match-player > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.match-card__player-image {
+  width: 16px;
+  height: 16px;
+}
+
+.match-card__expand-btn {
+  width: 40px;
+  height: 100%;
+  flex: 0 1 0%;
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.match-card__expand-btn:hover {
+  opacity: 0.5;
+}
+
+.match-card__arrow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding-left: 8px;
+}
+
+
+
+/* Estilo para o conteúdo do card */
+.card-content {
+  z-index: 1; /* Garante que o conteúdo do card esteja acima da imagem de fundo */
+}
+
+#content-card {
+  margin-top: -30px;
+  margin-left: 140px;
+}
+
+#lastDayPlayed {
+  margin-top: -10px;
+}
+
+#matchResult {
+  font-weight: bold;
+  font-size: 20px;
+  color: #1f7d35;
+  margin-top: -5px;
+}
+
+#kda {
+  margin-top: -20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Estilo para a lista */
+.image-list {
+  list-style: none; /* Remover marcadores de lista */
+  padding: 0; /* Remover padding padrão */
+  margin: 0; /* Remover margin padrão */
+  display: flex; /* Tornar a lista um contêiner flexível */
+}
+
+/* Estilo para os itens da lista */
+.image-list-item {
+  margin-right: 2px; /* Adicionar margem entre os itens */
+}
+
+/* Estilo para as imagens */
+.image-list-item img {
+  width: 40px; /* Largura desejada para as imagens */
+  height: auto; /* Altura automática para manter proporções */
+  border-radius: 5px; /* Borda arredondada */
+  border: 1px solid #ccc; /* Borda para destacar as imagens */
+}
+
+/* Estilo para a lista */
+.champion-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column; /* Altera a direção para vertical */
+}
+
+/* Estilo para os itens da lista */
+.champion-list-item {
+  margin-bottom: 10px; /* Adiciona margem entre os itens na direção vertical */
+  display: flex; /* Torna o item um contêiner flexível */
+  align-items: center; /* Centraliza os itens verticalmente */
+}
+
+/* Estilo para as imagens */
+.champion-list-item img {
+  width: 50px;
+  height: auto;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px; /* Adiciona margem à direita da imagem */
+}
+
+/* Estilo para o texto ao lado da imagem */
+.champion-list-item p {
+  margin: 0; /* Remove margens padrão do parágrafo */
+}
+
+.championContainer {
+  display: flex; /* Torna os elementos filhos em um flex container */
+}
+
+.summonerList {
+  flex: 1; /* Ocupa a largura total disponível */
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin: 10px;
+  display: flex; /* Torna os elementos filhos em um flex container */
+  align-items: center; /* Alinha os itens verticalmente no centro */
+}
+
+/* Estilo para as imagens e textos dentro das listas */
+.summonerList img {
+  width: 40px;
+  height: auto;
+  margin-right: 10px; /* Adiciona um espaçamento à direita da imagem */
+}
+
+/* Estilo para o texto ao lado da imagem */
+.summonerList p {
+  margin: 0;
+}
