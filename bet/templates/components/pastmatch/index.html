@@ -1,0 +1,354 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'assets/css/pastmatch.css' %}" />
+
+<div class="match-card">
+  <div class="match-card__border-left victory"></div>
+  <div class="match-card__content">
+    <div class="match-card__match-info">
+      <div class="match-card__text">
+        <span class="victory"><b>ARAM</b></span>
+      </div>
+      <div class="match-card__text">5 dias atrás</div>
+      <div class="divider-horizontal"></div>
+      <div class="match-card__text"><b>Vitória</b></div>
+      <div class="match-card__text">31m 55s</div>
+    </div>
+    <div class="match-card__player-info">
+      <div class="match-card__player-details">
+        <div class="match-card__champion">
+          <img
+            class="match-card__champion-image"
+            src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Renata.png"
+            alt="Renata"
+          />
+          <div class="match-card__level_badge">18</div>
+        </div>
+        <div class="match-card__spells">
+          <img
+            class="match-card__spell-image"
+            src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/spell/SummonerFlash.png"
+            alt="Flash"
+          />
+          <img
+            class="match-card__spell-image"
+            src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/spell/SummonerDot.png"
+            alt="Ignite"
+          />
+        </div>
+        <div class="match-card__runes">
+          <img
+            class="match-card__rune-image"
+            src="https://ddragon.canisback.com/img/perk-images/Styles/7201_Precision.png"
+            alt="Precision"
+          />
+          <img
+            class="match-card__spell-image"
+            src="https://ddragon.canisback.com/img/perk-images/Styles/7200_Domination.png"
+            alt="Domination"
+          />
+        </div>
+        <div class="match-card__kda">
+          <div class="match-card__kda-numbers">
+            <span
+              >10 /
+              <div class="defeat">9</div>
+              / 15</span
+            >
+            <div class="match-card__text">2.13:1 KDA</div>
+          </div>
+          <div class="match-card__kda-stats divider-victory">
+            <div class="match-card__text">
+              <span class="defeat"><b>P/Kill 39%</b></span>
+            </div>
+            <div class="match-card__text">Control Ward 6</div>
+            <div class="match-card__text">CS 242 (6)</div>
+            <div class="match-card__text">Platinum 2</div>
+          </div>
+        </div>
+      </div>
+      <div class="match-card__player-items">
+        <img
+          class="match-card__item-image"
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/item/1004.png"
+          alt="Faerie Charm"
+        />
+        <img
+          class="match-card__item-image"
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/item/1006.png"
+          alt="Rejuvenation Bead"
+        />
+        <img
+          class="match-card__item-image"
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/item/1011.png"
+          alt="Giant's Belt"
+        />
+        <img
+          class="match-card__item-image"
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/item/1018.png"
+          alt="Cloak of Agility"
+        />
+        <img
+          class="match-card__item-image"
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/item/1026.png"
+          alt="Blasting Wand"
+        />
+        <img
+          class="match-card__item-image"
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/item/1027.png"
+          alt="Sapphire Crystal"
+        />
+        <div class="match-card__tag double-kill">Double Kill</div>
+        <div class="match-card__tag ace">ACE</div>
+      </div>
+    </div>
+    <div class="match-card__team-info">
+      <div class="match-card__match-player">
+        <img
+          class="match-card__player-image"
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Renata.png"
+          alt="Shermanoo - Renata"
+        />
+        <span class="match-card__text highlighted">Shermanoo</span>
+      </div>
+      <div class="match-card__match-player">
+        <img
+          class="match-card__player-image"
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/LeeSin.png"
+          alt="Vovô Pemba - Lee Sin"
+        />
+        <span class="match-card__text">Vovô Pemba</span>
+      </div>
+      <div class="match-card__match-player">
+        <img
+          class="match-card__player-image"
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Bard.png"
+          alt="Jahrmann - Bard"
+        />
+        <span class="match-card__text">Jahrmann</span>
+      </div>
+      <div class="match-card__match-player">
+        <img
+          class="match-card__player-image"
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Lux.png"
+          alt="Raulzera - Lux"
+        />
+        <span class="match-card__text">Raulzera</span>
+      </div>
+      <div class="match-card__match-player">
+        <img
+          class="match-card__player-image"
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Ezreal.png"
+          alt="Baiacu - Ezreal"
+        />
+        <span class="match-card__text">Baiacu</span>
+      </div>
+    </div>
+    <div class="match-card__team-info">
+      <div class="match-card__match-player">
+        <img
+          class="match-card__player-image"
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Renata.png"
+          alt="Shermanoo - Renata"
+        />
+        <span class="match-card__text highlighted">Shermanoo</span>
+      </div>
+      <div class="match-card__match-player">
+        <img
+          class="match-card__player-image"
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/LeeSin.png"
+          alt="Vovô Pemba - Lee Sin"
+        />
+        <span class="match-card__text">Vovô Pemba</span>
+      </div>
+
+      <div class="match-card__match-player">
+        <img
+          class="match-card__player-image"
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Lux.png"
+          alt="Raulzera - Lux"
+        />
+        <span class="match-card__text">Raulzera</span>
+      </div>
+      <div class="match-card__match-player">
+        <img
+          class="match-card__player-image"
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Ezreal.png"
+          alt="Baiacu - Ezreal"
+        />
+        <span class="match-card__text">Baiacu</span>
+      </div>
+      <div class="match-card__match-player">
+        <img
+          class="match-card__player-image"
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Bard.png"
+          alt="Jahrmann - Bard"
+        />
+        <span class="match-card__text">Jahrmann</span>
+      </div>
+    </div>
+  </div>
+  <div class="match-card__expand-btn">
+    <div class="match-card__arrow-btn">
+      <svg
+        width="24"
+        height="24px"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+        id="arrowdown"
+        version="1.1"
+      >
+        <g id="layer1" transform="rotate(45 1254.793 524.438)">
+          <path
+            style="
+              fill: rgba(255,255,255,0.25);
+              fill-opacity: 1;
+              fill-rule: evenodd;
+              stroke: none;
+              stroke-width: 1px;
+              stroke-linecap: butt;
+              stroke-linejoin: miter;
+              stroke-opacity: 1;
+            "
+            d="M.536 1044.409v-1.997h9v-9h2v11z"
+            id="path4179"
+          />
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="match_card">
+  <div id="content-card">
+    <p id="lastDayPlayed">Há 3 dias</p>
+    <p id="matchResult">VITÓRIA</p>
+    <p id="kda">13 / 2 / 10</p>
+  </div>
+  <div id="personalDetails">
+    <div id="rank">Gold 3</div>
+    <div id="killstreak">TRIPLE-KILL</div>
+    <div id="goldMinute">69 cs/min</div>
+    <div id="killParticipation">Particip.Kill: 69%</div>
+    <div id="perfectGame">Perfect Game: Não</div>
+  </div>
+  <div id="championItems">
+    <ul class="image-list">
+      <li class="image-list-item">
+        <img
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Renata.png"
+          alt="Imagem 1"
+        />
+      </li>
+      <li class="image-list-item">
+        <img
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Renata.png"
+          alt="Imagem 2"
+        />
+      </li>
+      <li class="image-list-item">
+        <img
+          src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Renata.png"
+          alt="Imagem 3"
+        />
+      </li>
+    </ul>
+  </div>
+
+  <div class="championContainer">
+    <ul class="summoner-list">
+      <li class="image-list-item">
+        <div class="summonerList">
+          <img
+            src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Aatrox.png"
+            alt="Imagem 1"
+          />
+          <p id="summoner1">Player 1</p>
+        </div>
+      </li>
+      <li class="image-list-item">
+        <div class="summonerList">
+          <img
+            src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Aatrox.png"
+            alt="Imagem 1"
+          />
+          <p id="summoner2">Player 2</p>
+        </div>
+      </li>
+      <li class="image-list-item">
+        <div class="summonerList">
+          <img
+            src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Aatrox.png"
+            alt="Imagem 1"
+          />
+          <p id="summoner3">Player 3</p>
+        </div>
+      </li>
+      <li class="image-list-item">
+        <div class="summonerList">
+          <img
+            src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Aatrox.png"
+            alt="Imagem 1"
+          />
+          <p id="summoner4">Player 4</p>
+        </div>
+      </li>
+      <li class="image-list-item">
+        <div class="summonerList">
+          <img
+            src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Aatrox.png"
+            alt="Imagem 1"
+          />
+          <p id="summoner5">Player 5</p>
+        </div>
+      </li>
+    </ul>
+
+    <ul class="summoner-list">
+      <li class="image-list-item">
+        <div class="summonerList">
+          <img
+            src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Aatrox.png"
+            alt="Imagem 1"
+          />
+          <p id="summoner6">Player 6</p>
+        </div>
+      </li>
+      <li class="image-list-item">
+        <div class="summonerList">
+          <img
+            src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Aatrox.png"
+            alt="Imagem 1"
+          />
+          <p id="summoner7">Player 7</p>
+        </div>
+      </li>
+      <li class="image-list-item">
+        <div class="summonerList">
+          <img
+            src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Aatrox.png"
+            alt="Imagem 1"
+          />
+          <p id="summoner8">Player 8</p>
+        </div>
+      </li>
+      <li class="image-list-item">
+        <div class="summonerList">
+          <img
+            src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Aatrox.png"
+            alt="Imagem 1"
+          />
+          <p id="summoner9">Player 9</p>
+        </div>
+      </li>
+      <li class="image-list-item">
+        <div class="summonerList">
+          <img
+            src="https://ddragon.leagueoflegends.com/cdn/13.24.1/img/champion/Aatrox.png"
+            alt="Imagem 1"
+          />
+          <p id="summoner10">Player 10</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div> -->
