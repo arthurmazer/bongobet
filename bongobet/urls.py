@@ -18,10 +18,18 @@ from django.contrib import admin
 from django.urls import path
 from bet.views import render_view_index
 from bet.views import render_view_bet_lol
+from login.views import render_view_login
+from login.views import render_view_register
+from login.views import render_view_forgot_password
+from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', render_view_index, name='render_view_index'),
-    path('lolbet/', render_view_bet_lol, name='lolbet')
+    path('lolbet/', render_view_bet_lol, name='lolbet'),
+    path('login/', render_view_login, name='render_view_login'),
+    path('register/', render_view_register, name='render_view_register'),
+    path('forgot-password/', render_view_forgot_password, name='render_view_forgot_password'),
+    path('accounts/', include('allauth.urls'))
 ]
 

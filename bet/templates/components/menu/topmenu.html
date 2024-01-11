@@ -1,0 +1,99 @@
+{% load static %}
+<div id="sticky-header" class="tg-header__area transparent-header">
+    <div class="container custom-container">
+        <div class="row">
+            <div class="col-12">
+                <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
+                <div class="tgmenu__wrap">
+                    <nav class="tgmenu__nav">
+                        <div class="logo">
+                            <a href="/index"><img src="{% static 'assets/img/logo/logo.png' %}" alt="Logo"></a>
+                        </div>
+                        <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
+                            <ul class="navigation">
+                                <li class="active menu-item-has-children"><a href="#">Home</a>
+                                    <!-- <ul class="sub-menu">
+                                        <li class="active"><a href="index.html">Home One</a></li>
+                                        <li><a href="index-2.html">Home Two</a></li>
+                                    </ul> -->
+                                </li>
+                                <li><a href="about-us.html">SOBRE NÓS</a></li>
+                                
+                            </ul>
+                        </div>
+                        <div class="tgmenu__action d-none d-md-block">
+                            <ul class="list-wrap">
+                                <li class="header-btn"><a href="/accounts/login" class="tg-border-btn"><i class="flaticon-edit"></i>LOGIN</a></li>
+                                <li class="side-toggle-icon">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <!-- Mobile Menu  -->
+                <div class="tgmobile__menu">
+                    <nav class="tgmobile__menu-box">
+                        <div class="close-btn"><i class="flaticon-swords-in-cross-arrangement"></i></div>
+                        <div class="nav-logo">
+                            <a href="index.html"><img src="{% static 'assets/img/logo/logo.png' %}" alt="Logo"></a>
+                        </div>
+                        <div class="tgmobile__menu-outer">
+                            <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                        </div>
+                        <div class="social-links">
+                            <ul class="list-wrap">
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="tgmobile__menu-backdrop"></div>
+                <!-- End Mobile Menu -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- offCanvas-area -->
+<div class="offCanvas__wrap">
+    <div class="offCanvas__body">
+        <div class="offCanvas__top">
+            <div class="offCanvas__logo logo">
+                <a href="index.html"><img src="{% static 'assets/img/logo/logo.png' %}" alt="Logo"></a>
+            </div>
+            <div class="offCanvas__toggle">
+                <i class="flaticon-swords-in-cross-arrangement"></i>
+            </div>
+        </div>
+        <div class="offCanvas__content">
+            <h2 class="title">Entre em contato com o suporte <span>BongoBet</span></h2>
+            <div class="offCanvas__contact">
+                <h4 class="small-title">Contate-nos</h4>
+                <ul class="offCanvas__contact-list list-wrap">
+                    <li><a href="tel:93332225557">+55 11 99324 2234</a></li>
+                    <li><a href="mailto:info@webmail.com">contato.bongobet@</a></li>
+                    <li>Rua Sem Ali Mere, São Paulo</li>
+                </ul>
+            </div>
+            <ul class="offCanvas__social list-wrap">
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+            </ul>
+        </div>
+        <div class="offCanvas__copyright">
+            <p>Copyright © 2023 - <span>BongoBet</span></p>
+        </div>
+    </div>
+</div>
+<div class="offCanvas__overlay"></div>
+<!-- offCanvas-area-end -->

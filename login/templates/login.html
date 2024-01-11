@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>BongoBet - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <!-- External CSS libraries -->
+    <link type="text/css" rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'assets/fonts/font-awesome/css/font-awesome.min.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'assets/fonts/flaticon/font/flaticon.css' %}">
+
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="{% static 'assets/img/favicon.ico' %}" type="image/x-icon" >
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPoppins:400,500,700,800,900%7CRoboto:100,300,400,400i,500,700">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Custom Stylesheet -->
+    <link type="text/css" rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" id="style_sheet" href="{% static 'assets/css/skins/default.css' %}">
+
+</head>
+<body id="top">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TAGCODE"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="page_loader"></div>
+
+<!-- Login 17 start -->
+<div class="login-17">
+    <div class="container-fluid">
+        <div class="row login-box">
+            <div class="col-lg-6 bg-img">
+                <div class="info clearfix">
+                    <h1>Bem-vindo ao <span>BongoBet</span></h1>
+                    <p>Apimente seus jogos rankeados com apostas personalizadas para você, ou aposte em seu streamer/jogador favorito!</p>
+                    <p>Sua aposta fica registrada para o próximo jogo do player desejado, até que ele aconteça. Antes disso, você pode cancelar sua aposta a qualquer momento.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 form-section clip-home">
+                <div class="form-inner">
+                    <a href="/index" class="logo">
+                        <img src="{% static 'assets/img/logo/logo.png' %}" alt="logo">
+                    </a>
+                    <h3>Entre na sua conta</h3>
+                    <form action="#" method="GET">
+                        <div class="form-group form-box">
+                            <input type="email" name="email" class="form-control" placeholder="Email Address" aria-label="Email Address">
+                            <i class="flaticon-mail-2"></i>
+                        </div>
+                        <div class="form-group form-box">
+                            <input type="password" name="password" class="form-control" autocomplete="off" placeholder="Password" aria-label="Password">
+                            <i class="flaticon-password"></i>
+                        </div>
+                        <div class="checkbox form-group form-box">
+                            <div class="form-check checkbox-theme">
+                                <input class="form-check-input" type="checkbox" value="" id="rememberMe">
+                                <label class="form-check-label" for="rememberMe">
+                                    Lembrar-me
+                                </label>
+                            </div>
+                            <a href="/forgot-password" class="forgot-password">Esqueci a senha</a>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn-md btn-theme w-100">Login</button>
+                        </div>
+
+                        <div class="extra-login form-group clearfix">
+                            <span>Ou Logue pelo</span>
+                        </div>
+                        <div class="clearfix"></div>
+                        <ul class="social-list clearfix">
+                            <li><a href="#" class="facebook-bg">Facebook</a></li>
+                            <li><a href="#" class="google-bg">Google</a></li>
+                        </ul>
+                    </form>
+                    <div class="clearfix"></div>
+                    <p>Ainda não tem conta? <a href="/register" class="thembo"> CADASTRE AQUI</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Login 17 end -->
+
+<!-- External JS libraries -->
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+<!-- Custom JS Script -->
+</body>
+</html>

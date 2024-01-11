@@ -20,3 +20,14 @@ Você pode instalar o Django usando o pip, que é o gerenciador de pacotes do Py
 ### Passo 3: Caso inicie corretamente, acesse o link do localhost
 
 `http://localhost:8000/index/`
+
+### Passo 4: Edite seu .env na raiz do projeto
+
+`DB_NAME=`
+`DB_USER=`
+`DB_PASSWORD=`
+`DB_HOST=`
+`DB_PORT=`
+`RIOT_API_KEY=`
+`CLIENT_ID=`
+`SECRET_KEY=`

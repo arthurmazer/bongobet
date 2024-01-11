@@ -4,12 +4,12 @@
   color: #fff !important;
 }
 
-.victory {
+.win {
   border-color: #7ce04a;
   color: #7ce04a;
 }
 
-.defeat {
+.lose {
   border-color: #c50021;
   color: #c50021;
 }
@@ -22,7 +22,7 @@
   background-color: #7d59ea;
 }
 
-.divider-horizontal {
+.divider-horizontal.win {
   height: 1px;
   width: 70px;
   padding: 0px 8px;
@@ -30,13 +30,32 @@
   background-color: #24662B;
 }
 
+.divider-horizontal.lose {
+  height: 1px;
+  width: 70px;
+  padding: 0px 8px;
+  margin: 4px 0px;
+  background-color: #e84057;
+}
+
 .divider-victory {
   border-color: #24662B;
 }
 
-.match-card {
+.match-card.win {
   border-radius: 8px;
   background-color: #304A1D;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+  max-width: 800px;
+  height: 148px;
+}
+
+.match-card.lose {
+  border-radius: 8px;
+  background-color: #FFD8D9;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: row;
