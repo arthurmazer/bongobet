@@ -4,12 +4,101 @@ from .utils import get_user_by_summoner_name
 from .utils import get_rank_stats
 from .utils import obter_primeira_versao_ddragon
 from .utils import get_queue_json
-from datetime import datetime, timedelta
+from .utils import get_wallet_quantity
+from datetime import datetime
+from .models import BetType
+from .models import GameType
+from.models import Bet
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
 import math
+import pytz
+from datetime import datetime
 
-# Create your views here.
+@api_view(['POST'])
+def bet_view(request):
+    if request.method == 'POST':
+        user = request.user
+
+        betVictoryQuantity = request.data.get('betVictoryInput')
+        betFistBloodQuantity = request.data.get('betFirstBloodInput')
+        betBaronQuantity = request.data.get('betBaronInput')
+
+        activeFirstBlood = request.data.get('activeFirstBlood')
+        activeFirstBaron = request.data.get('activeFirstBaron')
+
+        gameType = request.data.get('gameType')
+
+        victoryCondition = "Vitória"
+        firstBloodCondition = "First Blood"
+        firstBaronCondition = "First Baron"
+
+        print(betVictoryQuantity)
+        print(betFistBloodQuantity)
+        print(betBaronQuantity)
+        print(activeFirstBlood)
+        print(activeFirstBaron)
+        print(gameType)
+        print(victoryCondition)
+        print(firstBloodCondition)
+        print(firstBaronCondition)
+ 
+        # TODO TRY AND CATCH
+        betTypeVictory = BetType.objects.get(name="Vitória", gametype__name=gameType)
+        betTypeFirstBlood = BetType.objects.get(name="First Blood", gametype__name=gameType) #First Blood
+        betTypeFirstBaron = BetType.objects.get(name="First Baron", gametype__name=gameType)
+
+        print(betTypeFirstBlood)
+        print(firstBaronCondition)
+        
+        betVictory = Bet()
+        betVictory.user = user
+        betVictory.quantity = betVictoryQuantity
+        betVictory.betType = betTypeVictory
+        betVictory.date = str(pytz.timezone('America/Sao_Paulo').localize(datetime.now()))
+        betVictory.statusBet = 0
+        betVictory.save()
+        
+        if activeFirstBlood:
+            betFirstBlood = Bet()
+            betFirstBlood.user = user
+            betFirstBlood.quantity = betFistBloodQuantity
+            betFirstBlood.betType = betTypeFirstBlood
+            betFirstBlood.date = str(pytz.timezone('America/Sao_Paulo').localize(datetime.now()))
+            betFirstBlood.statusBet = 0
+            betFirstBlood.save()
+
+        if activeFirstBaron:
+            betFirstBaron = Bet()
+            betFirstBaron.user = user
+            betFirstBaron.quantity = betBaronQuantity
+            betFirstBaron.betType = betTypeFirstBaron
+            betFirstBaron.date = str(pytz.timezone('America/Sao_Paulo').localize(datetime.now()))
+            betFirstBaron.statusBet = 0
+            betFirstBaron.save()
+      
+        return Response({'success': True, 'message': 'Aposta realizada com sucesso!'}, status=status.HTTP_201_CREATED)
+    else:
+        return Response({'success': False, 'message': 'Método não permitido'}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
 def render_view_index(request):
-    return render(request, 'index.html')
+    #Wallet details
+    context = {
+        'wallet': get_wallet_details(request.user),
+    }    
+    return render(request, 'index.html', context)
+
+def get_wallet_details(user):
+    if user:
+        wallet = get_wallet_quantity(user.id)
+        if wallet == None:
+            wallet = 0.0
+    else:
+        wallet = 0.0
+    return  "{:,.2f}".format(wallet)
+
 
 def render_view_bet_lol(request):
     summonerName = request.GET.get('summonerName', '')
@@ -54,6 +143,7 @@ def render_view_bet_lol(request):
     urlProfileImg = 'https://ddragon.leagueoflegends.com/cdn/' + str(lolLastVersion) + '/img/profileicon/' + str(profileIconId) + '.png'
 
     # Match History
+    wallet = get_wallet_details(request.user)
 
     #Carrega da API as 10 ultimas partidas
     match_history = get_match_history(puuid)
@@ -131,7 +221,7 @@ def render_view_bet_lol(request):
         assists = myPlayer[0]["assists"]
         kda = f'{kills} / {deaths} / {assists}'
         kdaRatio = myPlayer[0]["challenges"]["kda"]
-        killParticipation = int(myPlayer[0]["challenges"]["killParticipation"]*100)
+        #killParticipation = int(myPlayer[0]["challenges"]["killParticipation"]*100)
         multikills = myPlayer[0]["challenges"]["multikills"]
         soloKills = myPlayer[0]["challenges"]["soloKills"]
         killingSprees = myPlayer[0]["killingSprees"]
@@ -174,7 +264,7 @@ def render_view_bet_lol(request):
             "assists": assists,
             "deaths": deaths,
             "kdaRatio": kdaRatio,
-            "killParticipation": killParticipation,
+            #"killParticipation": killParticipation,
             "multikills": multikills,
             "soloKills": soloKills,
             "killingSprees": killingSprees,
@@ -210,7 +300,8 @@ def render_view_bet_lol(request):
         'lossesFlex': lossesFlex,
         'winrateFlex': winrateFlex,
         'partidasSolo': partidasSolo,
-        'partidasFlex': partidasFlex
+        'partidasFlex': partidasFlex,
+        'wallet': wallet,
     }
     return render(request, 'lolbet.html', context)
 

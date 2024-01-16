@@ -1,13 +1,13 @@
 import requests
 from django.conf import settings
-from django.http import JsonResponse
-import httpx
-import asyncio
 
 RIOT_API_KEY = settings.RIOT_API_KEY
 RIOT_API_AMERICAS_URL = 'https://americas.api.riotgames.com/lol'
 RIOT_API_BR_URL = 'https://br1.api.riotgames.com/lol'
 headers = {'X-Riot-Token': RIOT_API_KEY}
+MAX_PARTIDAS_HISTORICO = 3
+
+WALLET_API_URL = 'http://localhost:8000/api'
 
 def get_user_by_summoner_name(summoner_name):
     endpoint = f'{RIOT_API_BR_URL}/summoner/v4/summoners/by-name/{summoner_name}'
@@ -32,7 +32,7 @@ def get_match_history(puuid):
             if isinstance(matches_data, list):  # Verifica se 'matches_data' é uma lista
                 results = []
                 #pega das 10 ultimas partidas
-                ultimasPartidas = matches_data[0:11]
+                ultimasPartidas = matches_data[0:MAX_PARTIDAS_HISTORICO]
                 #print(ultimas5Partidas)
                 for id in ultimasPartidas:
                     results.append(get_match_by_id(id))       
@@ -88,7 +88,17 @@ def obter_primeira_versao_ddragon():
 
 
     return None
-primeira_versao = obter_primeira_versao_ddragon()
-print("Primeira versão do DDragon:", primeira_versao)
 
+    ################ END API RIOT ######################
+
+#API WALLET
+
+def get_wallet_quantity(user_id):
+    endpoint = f'{WALLET_API_URL}/wallet/{user_id}/'
+    response = requests.get(endpoint)
+
+    if response.status_code == 200:
+        wallet = response.json()
+        return wallet.get('quantity')
     
+    return None

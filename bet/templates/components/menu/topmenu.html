@@ -17,18 +17,21 @@
                                         <li><a href="index-2.html">Home Two</a></li>
                                     </ul> -->
                                 </li>
-                                <li><a href="about-us.html">SOBRE NÓS</a></li>
+                                <li><a class="side-toggle-btn">SOBRE NÓS</a></li>
                                 
                             </ul>
                         </div>
                         <div class="tgmenu__action d-none d-md-block">
                             <ul class="list-wrap">
+                                {% if user.is_authenticated %}
+                                    <li><a href="#"> {{ user.username }}</a></li>
+                                    <li class="header-btn"><a href="/accounts/login" class="tg-border-btn">R$ {{wallet}}</a></li> 
+                                    <li class="active menu-item-has-children"><a href="/accounts/logout">LOGOUT</a></li>
+                                {% else %}
                                 <li class="header-btn"><a href="/accounts/login" class="tg-border-btn"><i class="flaticon-edit"></i>LOGIN</a></li>
-                                <li class="side-toggle-icon">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </li>
+                                {% endif %}
+                                
+                                
                             </ul>
                         </div>
                     </nav>
@@ -46,10 +49,7 @@
                         <div class="social-links">
                             <ul class="list-wrap">
                                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
                             </ul>
                         </div>
                     </nav>
@@ -86,8 +86,6 @@
             <ul class="offCanvas__social list-wrap">
                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>
                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                <li><a href="#"><i class="fab fa-youtube"></i></a></li>
             </ul>
         </div>
         <div class="offCanvas__copyright">

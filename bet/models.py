@@ -1,15 +1,13 @@
 from django.db import models
-from user.models import User
 from enum import Enum
-
+from django.contrib.auth.models import User
 
 
 class StatusBet(Enum):
-    AGUARDANDO_PAGAMENTO = 0
-    APOSTADO = 1
-    VITORIA = 2
-    DERROTA = 3
-    EXPIRADA = 4
+    APOSTADO = 0
+    VITORIA = 1
+    DERROTA = 2
+    EXPIRADA = 3
 
 class Game(models.Model):
     name = models.CharField(max_length=400)
@@ -17,25 +15,32 @@ class Game(models.Model):
     def __str__(self):
         return f"{self.name}"
     
-class BetType(models.Model):
+class GameType(models.Model):
     name = models.CharField(max_length=400)
-    condicao = models.CharField(max_length=400)
-    apostaMax = models.FloatField()
-    multiplicador = models.FloatField()
     game = models.ForeignKey(Game, on_delete=models.CASCADE, related_name="game")
 
     def __str__(self):
-        return f"{self.name} {self.multiplicador}"
-
-
-class Bet(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="userBet")
-    quantity = models.FloatField()
-    date = models.DateTimeField(auto_now_add=True)
-    betType = models.ForeignKey(BetType, on_delete=models.CASCADE, related_name="betType")
-    statusBet = models.IntegerField(choices=[(tag, tag.value) for tag in StatusBet])
+        return f"{self.name}"
+    
+class BetType(models.Model):
+    name = models.CharField(max_length=400)
+    condicao = models.CharField(max_length=400)
+    multiplicadorMin = models.FloatField()
+    multiplicadorMax = models.FloatField()
+    gametype = models.ForeignKey(GameType, on_delete=models.CASCADE, related_name="gameType")
 
     def __str__(self):
-        return f"{self.quantity} {self.statusBet}"
+        return f"{self.name} {self.multiplicadorMin} {self.condicao} {self.gametype}"
+    
+class Bet(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    quantity = models.FloatField()
+    date = models.TextField()
+    betType = models.ForeignKey(BetType, on_delete=models.CASCADE, related_name="betType")
+    statusBet = models.IntegerField(choices=[(tag, tag.value) for tag in StatusBet])
+    idUltimoJogo = models.TextField()
+
+    def __str__(self):
+        return f"{self.user} {self.quantity} {self.statusBet} {self.betType} {self.date}"
     
 

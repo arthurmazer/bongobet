@@ -26,6 +26,42 @@
 
     <!-- Page-Revealer -->
     <script src="{% static 'assets/js/tg-page-head.js' %}"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('formBet');
+        var submitButton = form.querySelector('.tournament__details-form-btn');
+
+        submitButton.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            // Aqui você pode adicionar lógica adicional, como validar os campos do formulário antes de enviar para o servidor.
+
+            // Enviar o formulário usando AJAX
+            var formData = new FormData(form);
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': document.getElementsByName('csrfmiddlewaretoken')[0].value,
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Exibir popup de confirmação
+                alert('Aposta realizada com sucesso!'); // Você pode substituir isso por uma biblioteca de popup mais elegante, como SweetAlert.
+
+                // Aqui você pode adicionar mais lógica se necessário.
+
+                // Redirecionar ou recarregar a página, se necessário.
+                window.location.reload();
+            })
+            .catch(error => {
+                console.error('Erro ao processar a aposta:', error);
+                // Manipular erros, se necessário.
+            });
+        });
+    });
+</script>
 
 </head>
 
@@ -185,6 +221,8 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
+                            <form action="{% url 'bet' %}" id="formBet" method="post" class="footer-newsletter-form">
+                            {% csrf_token %}
                             <div class="tournament__list-item-wrapper">
                                 <div class="tournament__list-item wow fadeInUp" data-wow-delay=".2s">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1116.562" height="163.37" viewBox="0 0 1116.562 163.37">
@@ -196,7 +234,7 @@
                                         </div>
                                         <div class="tournament__list-name">
                                             <h5 class="team-name">Condição</h5>
-                                            <span class="status">Vitória</span>
+                                            <span class="status" name="victoryCondition">Vitória no próximo jogo</span>
                                         </div>
                                         <div class="tournament__list-prize">
                                             <h6 class="title">Aposta MAX</h6>
@@ -208,7 +246,22 @@
                                             <span>1.4</span>
                                         </div>
                                         <div class="tournament__list-live">
-                                            <a href="/accounts/login" target="_blank">APOSTAR</a>
+                                            {% if user.is_authenticated %}
+                                                <input type="checkbox" id="activeVictory" name="activeVictory" checked disabled>
+                                                <label for="activeVictory" >ATIVAR</label>
+
+                                                <select name="gameType">
+                                                    <option value="Ranked SOLO/DUO">Ranked SOLO/DUO</option>
+                                                    <option value="Ranked Flex">Ranked Flex</option>
+                                                    <option value="ARAM">ARAM</option>
+                                                </select>
+                                                                                    
+                                                </br>
+                                                <label for="betVictoryInput">Valor da Aposta:</label>
+                                                <input type="number" id="betVictoryInput" name="betVictoryInput" step="0.1">
+                                            {% else %}
+                                                <a href="/accounts/login" target="_blank">APOSTAR</a>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
@@ -222,7 +275,7 @@
                                         </div>
                                         <div class="tournament__list-name">
                                             <h5 class="team-name">Condição</h5>
-                                            <span class="status">FIRST BLOOD</span>
+                                            <span class="status" name="firstBloodCondition">FIRST BLOOD</span>
                                         </div>
                                         <div class="tournament__list-prize">
                                             <h6 class="title">Aposta MAX</h6>
@@ -234,7 +287,15 @@
                                             <span>1.6</span>
                                         </div>
                                         <div class="tournament__list-live">
-                                            <a href="/accounts/login" target="_blank">APOSTAR</a>
+                                            {% if user.is_authenticated %}
+                                                <input type="checkbox" id="activeFirstBlood" name="activeFirstBlood">
+                                                <label for="activeFirstBlood" >ATIVAR</label>                                    
+                                                </br>
+                                                <label for="betFirstBloodInput">Valor da Aposta:</label>
+                                                <input type="number" id="betFirstBloodInput" name="betFirstBloodInput" step="0.1">
+                                            {% else %}
+                                                <a href="/accounts/login" target="_blank">APOSTAR</a>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
@@ -248,7 +309,7 @@
                                         </div>
                                         <div class="tournament__list-name">
                                             <h5 class="team-name">Condição</h5>
-                                            <span class="status">Primeiro Baron</span>
+                                            <span class="status" name="firstBaronCondition">Primeiro Baron</span>
                                         </div>
                                         <div class="tournament__list-prize">
                                             <h6 class="title">Aposta MAX</h6>
@@ -260,11 +321,21 @@
                                             <span>1.4</span>
                                         </div>
                                         <div class="tournament__list-live">
-                                            <a href="/accounts/login" target="_blank">APOSTAR</a>
+                                            {% if user.is_authenticated %}
+                                                <input type="checkbox" id="activeFirstBaron" name="activeFirstBaron">
+                                                <label for="activeFirstBaron" >ATIVAR</label>                                    
+                                                </br>
+                                                <label for="betBaronInput">Valor da Aposta:</label>
+                                                <input type="number" id="betBaronInput" name="betBaronInput" step="0.1">
+                                            {% else %}
+                                                <a href="/accounts/login" target="_blank">APOSTAR</a>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
+                                <button class="tournament__details-form-btn">APOSTAR</button>
                             </div>
+                        </form>
                         </div>
                     </div>
                 </div>

@@ -41,6 +41,18 @@ STATICFILES_DIRS = [
 
 SOCIALACCOUNT_LOGIN_ON_GET=True
 LOGIN_REDIRECT_URL  = '/index'
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+
+ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_LOGOUT_REDIRECT_URL = '/index'
+
+USE_TZ = True
+TIME_ZONE = 'America/Sao_Paulo'
+
+
 
 # Application definition
 
@@ -59,6 +71,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

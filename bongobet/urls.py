@@ -18,10 +18,13 @@ from django.contrib import admin
 from django.urls import path
 from bet.views import render_view_index
 from bet.views import render_view_bet_lol
+from bet.views import bet_view
 from login.views import render_view_login
 from login.views import render_view_register
 from login.views import render_view_forgot_password
 from django.urls import include
+from wallet.views import WalletQuantityAPIView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,6 +33,8 @@ urlpatterns = [
     path('login/', render_view_login, name='render_view_login'),
     path('register/', render_view_register, name='render_view_register'),
     path('forgot-password/', render_view_forgot_password, name='render_view_forgot_password'),
-    path('accounts/', include('allauth.urls'))
+    path('accounts/', include('allauth.urls')),
+    path('api/wallet/<int:user_id>/', WalletQuantityAPIView.as_view(), name='wallet_quantity_api'),
+    path('bet/', bet_view, name='bet'),
 ]
 

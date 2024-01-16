@@ -192,7 +192,7 @@ $('.about__tab-wrap ul button').on('click', () => new Audio('assets/audio/tab.mp
 /*===========================================
 	=            OffCanvas Active     =
 =============================================*/
-$('.side-toggle-icon').on('click', function () {
+$('.side-toggle-btn').on('click', function () {
 	$('body').addClass('offCanvas__menu-visible');
 });
 $('.offCanvas__overlay, .offCanvas__toggle').on('click', function () {
