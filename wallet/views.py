@@ -11,3 +11,7 @@ class WalletQuantityAPIView(APIView):
             return Response({'quantity': wallet.quantity})
         except Wallet.DoesNotExist:
             return Response({'error': 'Wallet not found'}, status=status.HTTP_404_NOT_FOUND)
+
+def render_view_wallet(request):
+    #Wallet details
+    return render(request, 'wallet.html')
